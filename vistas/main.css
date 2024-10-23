@@ -1,0 +1,87 @@
+.contenedor {
+		width: 100%; 
+		min-height: 100vh;
+		box-sizing: border-box; 
+		background-color: #fff; /* #DAE3F3 */
+		margin:0;
+	}
+	/* header */
+	.header {
+		padding: 10px;
+		padding-bottom: 5px;
+		color: #88888A;
+	}
+	.linea {
+		height: 5px;
+		width: 100%;
+	/*background: linear-gradient(80deg, #19a5b3, #10bfb0);*/
+	background: linear-gradient(80deg, #16e690, #0becd7);
+}
+}
+	}
+	.logo-left, .login {
+		display: flex;
+    	align-items: flex-end;
+	}
+	.contactanos {
+		text-align: right;
+		font-size: 14px;
+	}
+	.contactanos * {
+		margin: 0;
+		padding: 0;
+	}
+	.d-none {
+		display: none;
+	}
+
+
+
+
+
+	.inputN {
+		border: none;
+		border-bottom: 1px solid #4472C4;
+	}
+	.titulo {
+		color: #50b8e8;
+		font-weight: 200;
+		font-family: 'Fredoka One', cursive;
+	}
+	.contactosN {
+		font-weight: 700;
+		font-size: 20px;
+	}
+	.pagueS {
+		color: #88888A;
+		font-size: 20px;
+	}
+	.datos-empresa * {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+		color: #50b8e8;
+	}
+	
+	
+	.inf-pago {
+		text-align: center;
+	}
+	.m-0 {
+		margin: 0;
+	}
+	.p-0 {
+		padding: 0;
+	}
+	.pl {
+		padding-left: 1px;
+	}
+	.pr {
+		padding-right: 1px;
+	}
+
+	/* datos del detalle del usuario */
+	.cotenedor-tabla {
+		margin: 0 auto;
+		width: 50%;
+	}
