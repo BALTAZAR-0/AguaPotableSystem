@@ -1,6 +1,5 @@
 <?php
 
-/*
 class Conexion
 {
 
@@ -18,7 +17,8 @@ class Conexion
 		return $link;
 	}
 }
-*/
+
+/*
 class Conexion {
 
     static public function conectar() {
@@ -34,3 +34,4 @@ class Conexion {
     }
 
 }
+*/
