@@ -6,6 +6,9 @@ require_once('tcpdf_include.php');
 $colorE = "#08a7df";
 $color_titulos = "#0288C0";
 
+date_default_timezone_set('America/Guatemala');
+$fechaActual = date('d/m/Y');
+
 //obtengo la informacion de la base de datos
 $item = "idrecibo";
 $valor = $_GET['idrecibo'];
@@ -38,7 +41,6 @@ if($respuestaLecturaAnterior["totalM3"]!=null){
 $nombreUsuario = " ";
 $dniUsuario = "";
 $direccionUsuario = " ";          
-
 //datos empresa
 $nombreEmpresa = "";
 $ruc = "";
@@ -75,7 +77,6 @@ $mesFacturado = $respuesta[0]['month_billed'];
 $lecturaActual = $respuesta[0]['totalM3'];
 
 $consumoDelMes=$lecturaActual-$LecturaAnterior;
-
 //fecha vencimiento
 $meses = array("mescero","Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
 $year = (int)explode("-", $respuesta[0]['date_expires'])[0];
@@ -84,10 +85,7 @@ $dia = (int)explode("-", $respuesta[0]['date_expires'])[2];
 $fechaVence = "Fecha vence: ". $dia . " de " . $meses[$mes]." - ".$year;
 
 //fecha actual del sistema.
-date_default_timezone_set('UTC');
 setlocale(LC_ALL,"es_CO");
-$fechaActual = date('d/m/Y');
-$horaActual = date('g:i a');
 $fechaComprobante = "Fecha de Emision: $fechaActual";
 
 //validar el estado del recibo para mostrarlo
@@ -328,7 +326,7 @@ $html .= '<table border="0" cellspacing="2" cellpadding="4">
 						<br>
 						Cargo fijo : 
 						<br>
-						Cobros Anteriores:  
+						Otros Cobros:  
 					</th>
 					<th>
 						'.$subtotal.'
@@ -521,9 +519,6 @@ $html .= '<table cellspacing="3" cellpadding="4">
 			
 		</table>
 			
-    	<td width="100%" align="center">
-    	<tcpdf method="write1DBarcode" params="'.$stylebarra.'"/>
-    	</td>
     	<td>';
   	
     	$html.='</td>

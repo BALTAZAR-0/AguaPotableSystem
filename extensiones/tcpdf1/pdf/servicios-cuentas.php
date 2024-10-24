@@ -16,16 +16,16 @@ $respuestaContrata = ControladorContratos::ctrMostrarServiciosReporte($estado_se
 
 
 //fecha actual del sistema.
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Guatemala');
 setlocale(LC_ALL,"es_CO");
 $fechaActual = date('d/m/Y');
-$horaActual = date('g:i a');
-$fechaComprobante = "FECHA $fechaActual HORA $horaActual";
+$fechaComprobante = "FECHA $fechaActual";
 
     $width = [10, 20, 20, 10, 20, 10];
 
 
 // Extend the TCPDF class to create custom Header and Footer
+date_default_timezone_set('America/Guatemala');
 class MYPDF extends TCPDF {
 	public $horaAtencion = "";
 	public $numeroComprobante = "";
@@ -34,7 +34,7 @@ class MYPDF extends TCPDF {
 	public function Header() {
 		// Logo
 		$image_file = K_PATH_IMAGES.'header_reportes.png';
-		$this->Image($image_file, 10, 4, 300, 23, 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
+		$this->Image($image_file, 10, 4, 200, 40, 'PNG', '', 'T', false, 300, '', false, false, 0, false, false, false);
 
 	}
 
@@ -85,26 +85,26 @@ $pdf->AddPage('L','A4');
 
 $bloque3 = <<<EOF
 
-	<table style="font-size:9px; padding:5px 10px;">
-
-		<tr>
-		<br>
-		<br>
-		
-
-		<td width="$width[0]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Cod. Servicio</b></td>
-		
-		<td width="$width[1]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Cliente</b></td>
-
-		<td width="$width[2]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Zona</b></td>
-		<td width="$width[3]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Dirección</b></td>
-		<td width="$width[4]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>N° Medidor</b></td>
-		<td width="$width[5]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Estado</b></td>
-		</tr>
-
-	</table>
+    <table style="font-size:9px; padding:5px 10px;">
+        <tr><td colspan="6"><br><br><br></td></tr>  <!-- Añade saltos de línea -->
+        <tr>
+            <td colspan="6" style="text-align:left; font-size:10px; padding-left:10px;">
+                <b>$fechaComprobante</b>
+            </td>
+        </tr>
+        <tr>
+            <td width="$width[0]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Cod. Servicio</b></td>
+            <td width="$width[1]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Cliente</b></td>
+            <td width="$width[2]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Zona</b></td>
+            <td width="$width[3]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Dirección</b></td>
+            <td width="$width[4]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>N° Medidor</b></td>
+            <td width="$width[5]%" style="border: 1px solid #666; background-color:white; text-align:center"><b>Estado</b></td>
+        </tr>
+    </table>
 
 EOF;
+
+
 
 $pdf->writeHTML($bloque3, false, false, false, false, '');
 

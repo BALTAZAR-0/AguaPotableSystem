@@ -38,7 +38,7 @@ if($respuestaLecturaAnterior["totalM3"]!=null){
 $nombreUsuario = " ";
 $dniUsuario = "";
 $direccionUsuario = " ";          
-
+date_default_timezone_set('America/Guatemala');
 //datos empresa
 $nombreEmpresa = "";
 $ruc = "";
@@ -107,7 +107,7 @@ if($respuesta[0]['estado'] == 0){
 
 
 $lecturaAnterior = 0;
-
+date_default_timezone_set('America/Guatemala');
 // Extend the TCPDF class to create custom Header and Footer
 class MYPDF extends TCPDF {
 	public $horaAtencion = "";

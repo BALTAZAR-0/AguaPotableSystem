@@ -43,7 +43,7 @@ $dia = (int)explode("-", $respuesta[0]['date_expires'])[2];
 $fechaVence = "Fecha vence: ". $dia . " de " . $meses[$mes]." - ".$year;
 
 //fecha actual del sistema.
-date_default_timezone_set('UTC');
+date_default_timezone_set('America/Guatemala');
 setlocale(LC_ALL,"es_CO");
 $fechaActual = date('d/m/Y');
 $horaActual = date('g:i a');

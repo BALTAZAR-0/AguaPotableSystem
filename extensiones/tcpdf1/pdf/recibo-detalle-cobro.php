@@ -54,7 +54,7 @@ $mesFacturado = "Abril 2021";
 $lecturaActual = 10;
 
 $cantidadItem = count($respuesta);
-$altoTick = (228 + $cantidadItem * 10);
+$altoTick = (190 + $cantidadItem * 5);
     
 
 // Extend the TCPDF class to create custom Header and Footer
@@ -123,6 +123,9 @@ $pdf->AddPage('P', $page_format, false, false);
 // set some text to print
 $pdf->SetFont('helvetica', 'B', 10);
 
+date_default_timezone_set('America/Guatemala');
+$fechaActual = date("d/m/Y");  // Formato de fecha: día/mes/año
+
 $pdf->SetMargins(0, 0, 0, 0);
     //$pdf->SetAutoPageBreak(TRUE, 0);
 //$pdf->setCellPaddings(30,30,30,0);
@@ -136,6 +139,9 @@ $pdf->SetMargins(0, 0, 0, 0);
                     <div style="font-size: 11; text-align: center">
                         COCODE del Caserío de Vueltamina, Aldea la Mesilla
                     </div>
+                    <div style="font-size: 9px; text-align: center;">
+                    Fecha: '.$fechaActual.'  <!-- Aquí se muestra la fecha -->
+                </div>
                 </td> 
             </tr>
             <tr>
@@ -291,15 +297,7 @@ $html .= '</table></td></tr>
     $pdf->writeHTML($html, true, false, true, false, '');
 
     $html = '<div id="ecard-container">
-        <table width="195" cellspacing="0" cellpadding="0">
-            
-             <tr>
-            	<td width="100%" align="center">
-                	<img src="'.K_PATH_IMAGES.'QR.png" width="100" height="90" />
-                </td>
-            </tr>
-           
-
+        <table width="190" cellspacing="0" cellpadding="0">
        
        
         </table>

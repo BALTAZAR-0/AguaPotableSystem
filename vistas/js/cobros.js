@@ -71,9 +71,7 @@ $(".btn-calcularCambio").click(function(){
   if($('#totalPagar').length > 0){
     var valorTotal = $('#totalPagar').text();
 
-    //Antes de Modificar estuvo asi
-    //if(valorTotal > 0 && valorPaga > valorTotal){
-    if(valorTotal > 0 && valorPaga >= valorTotal){
+    if(valorTotal > 0 && valorPaga > valorTotal){
       valorTotal = valorPaga - valorTotal;
       nuevoCambio.html(`${formatoNumero(valorTotal)}`);
       realizarCobro = true;
@@ -332,7 +330,6 @@ function cambiarRecargos(){
     $('#cronogramapagofooter').append(footer);
 
     detalleC = `<h5>SUB TOTAL: &nbsp  &nbsp &nbsp <span>${formatoNumero(subtotal)}</span></h5>
-                <h5 style="display: none;">-(${igvServicio.split('.')[1]}%): &nbsp  &nbsp &nbsp <span>${formatoNumero(igv)}</span></h5>
                 <h5>CARGO FIJO: &nbsp  &nbsp &nbsp <span>${formatoNumero(cargofijo)}</span></h5>
                 <h5>OTROS COBROS: &nbsp  &nbsp &nbsp <span>${formatoNumero(otroscobros)}</span></h5>
                 <h5>MORA: &nbsp  &nbsp &nbsp <span>${formatoNumero(mora)}</span></h5>
@@ -1070,5 +1067,4 @@ function formatoNumero(nStr)
   }
   return x1 + x2;
 }
-
 
